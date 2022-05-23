@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-formulario-reactivo',
   templateUrl: './formulario-reactivo.component.html',
@@ -9,7 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 export class FormularioReactivoComponent implements OnInit {
   loginForm: FormGroup;
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -21,7 +23,8 @@ export class FormularioReactivoComponent implements OnInit {
 
   onSubmit() {
     console.log(this.loginForm.value);
-
+    let body = this.loginForm.value.email + " | " + this.loginForm.value.password
+    this.toastr.success(body, 'Inicio de sesión exitoso');
   }
 
 }
