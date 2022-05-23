@@ -1,0 +1,43 @@
+<main class="form-signin w-100 m-auto text-center container">
+    <div class="card p-5">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <img class="mb-4 img-fluid w-25" src="https://www.mcicon.com/wp-content/uploads/2021/01/People_User_1-copy-4.jpg" alt="image_users">
+            <h1 class="h3 mb-3 fw-normal">Por favor inicia sesión</h1>
+            <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched" class="help-block text-danger"> Escribe un correo valido</span>
+            <div class="form-floating my-1">
+                <input
+                    formControlName="email"
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="juandacalji@gmail.com"
+                >
+                <label for="email">Correo electrónico</label>
+            </div>
+            <div class="form-floating my-1">
+                <input
+                    formControlName="password"
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="0000000"
+                >
+                <label for="password">Contraseña</label>
+            </div>
+            <div class="checkbox mb-3">
+                <label>
+                    <input
+                        formControlName="remeber"
+                        type="checkbox"
+                        value="remember-me"
+                    >
+                    Recuerdame
+                </label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar Sesión</button>
+
+            <p class="mt-5 mb-3 text-muted">&copy; Coder House Formularios reactivos</p>
+        </form>
+    </div>
+
+</main>
